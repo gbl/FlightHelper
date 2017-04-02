@@ -1,0 +1,16 @@
+[
+{
+  "modid": "flighthelper",
+  "name": "FlightHelper",
+  "description": "Some Mod",
+  "version": "",
+  "mcversion": "",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Giselbaer"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
