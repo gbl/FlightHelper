@@ -2,9 +2,9 @@
 {
   "modid": "flighthelper",
   "name": "FlightHelper",
-  "description": "Some Mod",
-  "version": "",
-  "mcversion": "",
+  "description": "Helps setting your pitch when Elytra gliding/using fireworks",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["Giselbaer"],
