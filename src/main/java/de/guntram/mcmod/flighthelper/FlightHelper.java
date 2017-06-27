@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.RenderTickEvent;
         version = FlightHelper.VERSION,
 	clientSideOnly = true, 
 	guiFactory = "de.guntram.mcmod.flighthelper.GuiFactory",
-	acceptedMinecraftVersions = "[1.11.2]"
+	acceptedMinecraftVersions = "[1.12]"
 )
 
 public class FlightHelper
