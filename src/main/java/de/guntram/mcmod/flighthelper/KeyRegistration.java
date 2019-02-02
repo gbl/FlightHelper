@@ -1,22 +1,23 @@
 package de.guntram.mcmod.flighthelper;
 
-import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import net.minecraft.client.settings.KeyBinding;
-import org.lwjgl.input.Keyboard;
+import org.dimdev.rift.listener.client.KeyBindingAdder;
+import org.lwjgl.glfw.GLFW;
 
-public class KeyRegistration {
+public class KeyRegistration implements KeyBindingAdder {
     
-    @SideOnly(Side.CLIENT)
     public static KeyBinding lockUp, lockFront, unlock;
     
-    public static void init() {
-        ClientRegistry.registerKeyBinding(lockUp = new KeyBinding("key.lockUp",
-                Keyboard.KEY_NUMPAD8, "key.categories.flighthelper"));
-        ClientRegistry.registerKeyBinding(lockFront = new KeyBinding("key.lockFront",
-                Keyboard.KEY_NUMPAD2, "key.categories.flighthelper"));
-        ClientRegistry.registerKeyBinding(unlock = new KeyBinding("key.unlock",
-                Keyboard.KEY_NUMPAD5, "key.categories.flighthelper"));
+    @Override
+    public Collection<? extends KeyBinding> getKeyBindings() {
+        List<KeyBinding> myBindings=new ArrayList();
+        
+        myBindings.add(lockUp =    new KeyBinding("key.lockUp",     GLFW.GLFW_KEY_KP_8, "key.categories.flighthelper"));
+        myBindings.add(lockFront = new KeyBinding("key.lockFront",  GLFW.GLFW_KEY_KP_2, "key.categories.flighthelper"));
+        myBindings.add(unlock =    new KeyBinding("key.unlock",     GLFW.GLFW_KEY_KP_5, "key.categories.flighthelper"));
+        return myBindings;
     }
 }

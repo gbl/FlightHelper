@@ -1,0 +1,12 @@
+{
+    "id": "flighthelper",
+    "name": "FlightHelper",
+    "authors": [
+        "Giselbaer"
+    ],
+    "listeners": [
+        "de.guntram.mcmod.flighthelper.FlightHelper",
+        "de.guntram.mcmod.flighthelper.KeyHandler",
+        "de.guntram.mcmod.flighthelper.KeyRegistration"
+    ]
+}
