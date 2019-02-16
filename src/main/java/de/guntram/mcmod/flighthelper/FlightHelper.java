@@ -1,5 +1,6 @@
 package de.guntram.mcmod.flighthelper;
 
+import de.guntram.mcmod.rifttools.ConfigurationProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import org.dimdev.rift.listener.client.ClientTickable;
@@ -17,10 +18,30 @@ public class FlightHelper implements InitializationListener, ClientTickable {
     public void onInitialization() {
         MixinBootstrap.init();
         Mixins.addConfiguration("mixins.riftpatch-de-guntram.json");
+        Mixins.addConfiguration("mixins.rifttools-de-guntram.json");
+        ConfigurationHandler confHandler = ConfigurationHandler.getInstance();
+        ConfigurationProvider.register("FlightHelper", confHandler);
+        confHandler.load(ConfigurationProvider.getSuggestedFile(MODID));
     }
 
     public static void lockPitch(float pitch) {
         lockedPitch=pitch;
+        float yaw=Minecraft.getInstance().player.rotationYaw;
+        while (yaw<0) yaw+=360;
+        while (yaw>360) yaw-=360;
+        if (yaw < 5.0 || yaw > 355.0) {
+            yaw=0.0f;
+        }
+        else if (yaw>85.0 && yaw<95.0) {
+            yaw=90.0f;
+        }
+        else if (yaw>175.0 && yaw<185.0) {
+            yaw=180.0f;
+        }
+        else if (yaw>265.0 && yaw<275.0) {
+            yaw=270.0f;
+        }
+        Minecraft.getInstance().player.rotationYaw=yaw;
         isLocked=true;
     }
     
@@ -33,6 +54,8 @@ public class FlightHelper implements InitializationListener, ClientTickable {
         if (!isLocked)
             return;
         EntityPlayerSP player = mncrft.player;
+        if (player==null)
+            return;                 // logged out while locked
         float curPitch = player.rotationPitch;
         float delta=lockedPitch-curPitch;
         if (delta>5.0f) delta=5.0f;

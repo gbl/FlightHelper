@@ -16,7 +16,7 @@ apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'java'
 
 group = "de.guntram.mcmod.flighthelper"
-version = "1.13.2-rift1.0.4.77-1.0"
+version = "1.13.2-rift1.0.4.77-1.1beta1"
 archivesBaseName = "flighthelper"
 
 sourceCompatibility = '1.8'
