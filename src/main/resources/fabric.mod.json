@@ -14,6 +14,6 @@
       "fabric": "*"
     },
     "mixins": {
-      "client": [ "mixins.de_guntram_mcmod_fabrictools.json" ]
+      "client": [ "mixins.flighthelper_fabrictools.json" ]
     }
 }
