@@ -1,6 +1,6 @@
 {
     "key.categories.flighthelper":"FlightHelper",
-    "key.lockUp":"Lock pitch to running fireworks looking up",
-    "key.lockFront":"Lock pitch to glide",
-    "key.unlock":"Unlock pitch"
+    "key.flighthelper.lockup":"Lock pitch to running fireworks looking up",
+    "key.flighthelper.lockfront":"Lock pitch to glide",
+    "key.flighthelper.unlock":"Unlock pitch"
 }

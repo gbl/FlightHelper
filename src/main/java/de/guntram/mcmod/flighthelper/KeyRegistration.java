@@ -16,8 +16,8 @@ public class KeyRegistration {
         final String category="key.categories.flighthelper";
         KeyBindingRegistry.INSTANCE.addCategory(category);
         
-        lockUp    = register("flighthelper:lockUp",     GLFW.GLFW_KEY_KP_8, category);
-        lockFront = register("flighthelper:lockFront",  GLFW.GLFW_KEY_KP_2, category);
+        lockUp    = register("flighthelper:lockup",     GLFW.GLFW_KEY_KP_8, category);
+        lockFront = register("flighthelper:lockfront",  GLFW.GLFW_KEY_KP_2, category);
         unlock    = register("flighthelper:unlock",     GLFW.GLFW_KEY_KP_5, category);
         KeyBindingManager.register(new KeyHandler());
     }
