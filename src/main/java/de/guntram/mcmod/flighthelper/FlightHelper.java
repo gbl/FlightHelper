@@ -1,32 +1,29 @@
 package de.guntram.mcmod.flighthelper;
 
-import de.guntram.mcmod.rifttools.ConfigurationProvider;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityPlayerSP;
-import org.dimdev.rift.listener.client.ClientTickable;
-import org.dimdev.riftloader.listener.InitializationListener;
-import org.spongepowered.asm.launch.MixinBootstrap;
-import org.spongepowered.asm.mixin.Mixins;
+import de.guntram.mcmod.fabrictools.ConfigurationProvider;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.event.client.ClientTickCallback;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
 
-public class FlightHelper implements InitializationListener, ClientTickable {
+public class FlightHelper implements ClientModInitializer, ClientTickCallback {
     static final String MODID="flighthelper";
     static final String VERSION="1.0";
     private static float lockedPitch;
     private static boolean isLocked;
 
     @Override
-    public void onInitialization() {
-        MixinBootstrap.init();
-        Mixins.addConfiguration("mixins.riftpatch-de-guntram.json");
-        Mixins.addConfiguration("mixins.rifttools-de-guntram.json");
+    public void onInitializeClient() {
         ConfigurationHandler confHandler = ConfigurationHandler.getInstance();
         ConfigurationProvider.register("FlightHelper", confHandler);
         confHandler.load(ConfigurationProvider.getSuggestedFile(MODID));
+        KeyRegistration.registerKeyBindings();
+        ClientTickCallback.EVENT.register(this);
     }
 
     public static void lockPitch(float pitch) {
         lockedPitch=pitch;
-        float yaw=Minecraft.getInstance().player.rotationYaw;
+        float yaw=MinecraftClient.getInstance().player.yaw;
         while (yaw<0) yaw+=360;
         while (yaw>360) yaw-=360;
         if (yaw < 5.0 || yaw > 355.0) {
@@ -41,7 +38,7 @@ public class FlightHelper implements InitializationListener, ClientTickable {
         else if (yaw>265.0 && yaw<275.0) {
             yaw=270.0f;
         }
-        Minecraft.getInstance().player.rotationYaw=yaw;
+        MinecraftClient.getInstance().player.yaw=yaw;
         isLocked=true;
     }
     
@@ -50,17 +47,17 @@ public class FlightHelper implements InitializationListener, ClientTickable {
     }
     
     @Override
-    public void clientTick(Minecraft mncrft) {
+    public void tick(MinecraftClient mncrft) {
         if (!isLocked)
             return;
-        EntityPlayerSP player = mncrft.player;
+        ClientPlayerEntity player = mncrft.player;
         if (player==null)
             return;                 // logged out while locked
-        float curPitch = player.rotationPitch;
+        float curPitch = player.pitch;
         float delta=lockedPitch-curPitch;
         if (delta>5.0f) delta=5.0f;
         if (delta<-5.0f) delta=-5.0f;
-        player.rotationPitch+=delta;
+        player.pitch+=delta;
         if (ConfigurationHandler.getAutoUnlock() && delta>-0.01f && delta<0.01f)
             isLocked=false;
     }

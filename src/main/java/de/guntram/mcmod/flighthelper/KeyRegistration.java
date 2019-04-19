@@ -1,23 +1,31 @@
 package de.guntram.mcmod.flighthelper;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import net.minecraft.client.settings.KeyBinding;
-import org.dimdev.rift.listener.client.KeyBindingAdder;
+import de.guntram.mcmod.fabrictools.KeyBindingManager;
+import net.fabricmc.fabric.api.client.keybinding.FabricKeyBinding;
+import net.fabricmc.fabric.api.client.keybinding.KeyBindingRegistry;
+import net.minecraft.client.options.KeyBinding;
+import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
-public class KeyRegistration implements KeyBindingAdder {
+public class KeyRegistration {
     
     public static KeyBinding lockUp, lockFront, unlock;
     
-    @Override
-    public Collection<? extends KeyBinding> getKeyBindings() {
-        List<KeyBinding> myBindings=new ArrayList();
+    public static void registerKeyBindings() {
+        final String category="key.categories.flighthelper";
+        KeyBindingRegistry.INSTANCE.addCategory(category);
         
-        myBindings.add(lockUp =    new KeyBinding("key.lockUp",     GLFW.GLFW_KEY_KP_8, "key.categories.flighthelper"));
-        myBindings.add(lockFront = new KeyBinding("key.lockFront",  GLFW.GLFW_KEY_KP_2, "key.categories.flighthelper"));
-        myBindings.add(unlock =    new KeyBinding("key.unlock",     GLFW.GLFW_KEY_KP_5, "key.categories.flighthelper"));
-        return myBindings;
+        lockUp    = register("flighthelper:lockUp",     GLFW.GLFW_KEY_KP_8, category);
+        lockFront = register("flighthelper:lockFront",  GLFW.GLFW_KEY_KP_2, category);
+        unlock    = register("flighthelper:unlock",     GLFW.GLFW_KEY_KP_5, category);
+        KeyBindingManager.register(new KeyHandler());
+    }
+
+    private static KeyBinding register (String name, int key, String category) {
+        FabricKeyBinding temp;
+        KeyBindingRegistry.INSTANCE.register(
+                temp=FabricKeyBinding.Builder.create(new Identifier(name), InputUtil.Type.KEYSYM, key, category).build());
+        return temp;
     }
 }

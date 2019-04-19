@@ -1,0 +1,19 @@
+{
+    "id": "flighthelper",
+    "name": "FlightHelper",
+    "description": "Help with maintaining elytra pitch",
+    "version": "1.0.0",
+    "side": "client",
+    "authors": [
+        "Giselbaer"
+    ],
+    "initializers": [
+        "de.guntram.mcmod.flighthelper.FlightHelper"
+    ],
+    "requires": {
+      "fabric": "*"
+    },
+    "mixins": {
+      "client": [ "mixins.de_guntram_mcmod_fabrictools.json" ]
+    }
+}

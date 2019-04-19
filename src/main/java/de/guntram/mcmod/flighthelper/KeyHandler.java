@@ -1,11 +1,11 @@
 package de.guntram.mcmod.flighthelper;
 
-import org.dimdev.rift.listener.client.KeybindHandler;
+import de.guntram.mcmod.fabrictools.KeyBindingHandler;
 
-public class KeyHandler implements KeybindHandler {
+public class KeyHandler implements KeyBindingHandler {
 
     @Override
-    public void processKeybinds() {
+    public void processKeyBinds() {
         if (KeyRegistration.unlock.isPressed()) {
             FlightHelper.unlockPitch();
         }
