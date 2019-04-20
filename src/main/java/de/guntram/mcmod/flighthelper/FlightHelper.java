@@ -8,6 +8,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
 
 public class FlightHelper implements ClientModInitializer, ClientTickCallback {
     static final String MODID="flighthelper";
+    static final String MODNAME="FlightHelper";
     static final String VERSION="1.0";
     private static float lockedPitch;
     private static boolean isLocked;
@@ -15,7 +16,7 @@ public class FlightHelper implements ClientModInitializer, ClientTickCallback {
     @Override
     public void onInitializeClient() {
         ConfigurationHandler confHandler = ConfigurationHandler.getInstance();
-        ConfigurationProvider.register("FlightHelper", confHandler);
+        ConfigurationProvider.register(MODNAME, confHandler);
         confHandler.load(ConfigurationProvider.getSuggestedFile(MODID));
         KeyRegistration.registerKeyBindings();
         ClientTickCallback.EVENT.register(this);

@@ -1,19 +1,25 @@
 {
+    "schemaVersion": 1,
     "id": "flighthelper",
-    "name": "FlightHelper",
-    "description": "Help with maintaining elytra pitch",
-    "version": "1.0.0",
-    "side": "client",
-    "authors": [
-        "Giselbaer"
+    "version": "1.14pre5-fabric0.4.1-1.2",
+    "environment": "client",
+    "entrypoints": {
+        "client": [ "de.guntram.mcmod.flighthelper.FlightHelper" ],
+        "modmenu": [ "de.guntram.mcmod.flighthelper.MMConfigurationHandler" ]
+    },
+    "custom": {
+        "modmenu:clientsideOnly": true
+    },
+    "mixins": [
+        "mixins.flighthelper_fabrictools.json"
     ],
-    "initializers": [
-        "de.guntram.mcmod.flighthelper.FlightHelper"
-    ],
-    "requires": {
+    "depends": {
       "fabric": "*"
     },
-    "mixins": {
-      "client": [ "mixins.flighthelper_fabrictools.json" ]
-    }
+    "recommends": {
+      "modmenu" : "*"
+    },
+    "name": "FlightHelper",
+    "description": "Help with maintaining elytra pitch",
+    "authors": [ "Giselbaer" ]
 }
