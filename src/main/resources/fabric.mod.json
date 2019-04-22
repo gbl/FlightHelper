@@ -11,7 +11,6 @@
         "modmenu:clientsideOnly": true
     },
     "mixins": [
-        "mixins.flighthelper_fabrictools.json"
     ],
     "depends": {
       "fabric": "*"
