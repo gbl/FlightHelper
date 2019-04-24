@@ -1,7 +1,7 @@
 {
     "schemaVersion": 1,
     "id": "flighthelper",
-    "version": "1.14pre5-fabric0.4.1-1.2",
+    "version": "1.14-fabric0.2.7-1.2",
     "environment": "client",
     "entrypoints": {
         "client": [ "de.guntram.mcmod.flighthelper.FlightHelper" ],
@@ -19,6 +19,12 @@
       "modmenu" : "*"
     },
     "name": "FlightHelper",
-    "description": "Help with maintaining elytra pitch",
-    "authors": [ "Giselbaer" ]
+    "description": "Helps with getting the maximum range out of rockets when flying Elytra, by locking the pitch to two different angles (one for firing rockets, one for gliding)",
+    "icon": "pack.png",
+    "authors": [ "Giselbaer" ],
+    "contact": {
+        "homepage": "https://minecraft.curseforge.com/projects/flighthelper",
+        "sources": "https://github.com/gbl/FlightHelper",
+        "issues": "https://github.com/gbl/FlightHelper/issues"
+    }
 }
