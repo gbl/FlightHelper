@@ -1,8 +1,8 @@
 package de.guntram.mcmod.flighthelper;
 
-import de.guntram.mcmod.fabrictools.KeyBindingManager;
 import net.fabricmc.fabric.api.client.keybinding.FabricKeyBinding;
 import net.fabricmc.fabric.api.client.keybinding.KeyBindingRegistry;
+import net.fabricmc.fabric.api.event.client.ClientTickCallback;
 import net.minecraft.client.options.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Identifier;
@@ -19,7 +19,7 @@ public class KeyRegistration {
         lockUp    = register("flighthelper:lockup",     GLFW.GLFW_KEY_KP_8, category);
         lockFront = register("flighthelper:lockfront",  GLFW.GLFW_KEY_KP_2, category);
         unlock    = register("flighthelper:unlock",     GLFW.GLFW_KEY_KP_5, category);
-        KeyBindingManager.register(new KeyHandler());
+        ClientTickCallback.EVENT.register(e->processKeyBinds());
     }
 
     private static KeyBinding register (String name, int key, String category) {
@@ -27,5 +27,19 @@ public class KeyRegistration {
         KeyBindingRegistry.INSTANCE.register(
                 temp=FabricKeyBinding.Builder.create(new Identifier(name), InputUtil.Type.KEYSYM, key, category).build());
         return temp;
+    }
+    
+    public static void processKeyBinds() {
+        if (KeyRegistration.unlock.isPressed()) {
+            FlightHelper.unlockPitch();
+        }
+        else if (KeyRegistration.lockUp.isPressed()) {
+            FlightHelper.lockPitch(ConfigurationHandler.getUpAngle());
+            System.out.println("locking to "+ConfigurationHandler.getUpAngle());
+        }
+        else if (KeyRegistration.lockFront.isPressed()) {
+            FlightHelper.lockPitch(ConfigurationHandler.getFrontAngle());
+            System.out.println("locking to "+ConfigurationHandler.getFrontAngle());            
+        }
     }
 }
