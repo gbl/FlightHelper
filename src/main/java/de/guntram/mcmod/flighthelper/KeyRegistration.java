@@ -6,11 +6,14 @@ import net.fabricmc.fabric.api.event.client.ClientTickCallback;
 import net.minecraft.client.options.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.util.Identifier;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyRegistration {
     
     public static KeyBinding lockUp, lockFront, unlock;
+    private static final Logger LOGGER=LogManager.getLogger();
     
     public static void registerKeyBindings() {
         final String category="key.categories.flighthelper";
@@ -30,16 +33,16 @@ public class KeyRegistration {
     }
     
     public static void processKeyBinds() {
-        if (KeyRegistration.unlock.isPressed()) {
+        if (KeyRegistration.unlock.wasPressed()) {
             FlightHelper.unlockPitch();
         }
-        else if (KeyRegistration.lockUp.isPressed()) {
+        else if (KeyRegistration.lockUp.wasPressed()) {
             FlightHelper.lockPitch(ConfigurationHandler.getUpAngle());
-            System.out.println("locking to "+ConfigurationHandler.getUpAngle());
+            LOGGER.info("locking to "+ConfigurationHandler.getUpAngle());
         }
-        else if (KeyRegistration.lockFront.isPressed()) {
+        else if (KeyRegistration.lockFront.wasPressed()) {
             FlightHelper.lockPitch(ConfigurationHandler.getFrontAngle());
-            System.out.println("locking to "+ConfigurationHandler.getFrontAngle());            
+            LOGGER.info("locking to "+ConfigurationHandler.getFrontAngle());            
         }
     }
 }
