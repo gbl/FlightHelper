@@ -1,0 +1,14 @@
+{
+    "key.categories.flighthelper":"FlightHelper",
+    "key.flighthelper.lockup":"Sicht nach oben feststellen",
+    "key.flighthelper.lockfront":"Sicht nach vorne feststellen",
+    "key.flighthelper.unlock":"Sichtwinkel entsperren",
+    
+    "flighthelper.config.pitchup": "Winkel nach oben",
+    "flighthelper.config.pitchfront": "Winkel nach vorne",
+    "flighthelper.config.autounlock": "Automatisch entsperren",
+
+    "flighthelper.config.tt.pitchup": "Winkel, der bei der Verwendung von Feuerwerk eingestellt wird",
+    "flighthelper.config.tt.pitchfront": "Winkel, der beim Gleiten eingestellt wird",
+    "flighthelper.config.tt.autounlock": "Winkel nur einstellen, nicht sperren"
+}

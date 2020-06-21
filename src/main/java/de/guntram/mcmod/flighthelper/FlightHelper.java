@@ -9,7 +9,6 @@ import net.minecraft.client.network.ClientPlayerEntity;
 public class FlightHelper implements ClientModInitializer, ClientTickCallback {
     static final String MODID="flighthelper";
     static final String MODNAME="FlightHelper";
-    static final String VERSION="1.0";
     private static float lockedPitch;
     private static boolean isLocked;
 
