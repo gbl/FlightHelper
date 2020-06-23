@@ -6,6 +6,9 @@ repositories {
 	maven {
 		url = "https://maven.fabricmc.net/"
 	}
+    maven {
+        url = "file:///tmp/mymavenrepo/"
+    }
 	maven {
 		url = "https://minecraft.guntram.de/maven/"
 	}
@@ -21,6 +24,7 @@ archivesBaseName = "flighthelper"
 ext.projectVersion = "1.2"
 
 version = "${Versions['minecraft_version']}-fabric${Versions['fabric_versiononly']}-${project.projectVersion}"
+Versions['gbfabrictools_version']="1.2.2+${Versions['minecraft_version']}"
 
 minecraft {
     refmapName = "FlightHelper-refmap.json";
@@ -53,4 +57,8 @@ dependencies {
 task sourcesJar(type: Jar, dependsOn: classes) {
 	classifier = 'sources'
 	from sourceSets.main.allSource
+}
+
+jar {
+	from "LICENSE"
 }
