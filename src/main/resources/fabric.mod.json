@@ -8,19 +8,24 @@
         "modmenu": [ "de.guntram.mcmod.flighthelper.MMConfigurationHandler" ]
     },
     "custom": {
-        "modmenu:clientsideOnly": true
+        "modmenu:clientsideOnly": true,
+        "modupdater": {
+            "strategy": "json",
+            "url": "https://raw.githubusercontent.com/gbl/ModVersionInfo/master/FlightHelper.json"
+        }
     },
     "mixins": [
     ],
     "depends": {
-      "fabric": "*"
+        "fabric": "*"
     },
     "recommends": {
-      "modmenu" : "*"
+        "modmenu" : "*",
+        "modupdater": ">=1.1.7"
     },
     "name": "FlightHelper",
     "description": "Helps with getting the maximum range out of rockets when flying Elytra, by locking the pitch to two different angles (one for firing rockets, one for gliding)",
-    "icon": "pack.png",
+    "icon": "icon.png",
     "authors": [ "Giselbaer" ],
     "contact": {
         "homepage": "https://www.curseforge.com/minecraft/mc-mods/flighthelper",
