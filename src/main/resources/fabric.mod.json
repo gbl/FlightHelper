@@ -8,7 +8,6 @@
         "modmenu": [ "de.guntram.mcmod.flighthelper.MMConfigurationHandler" ]
     },
     "custom": {
-        "modmenu:clientsideOnly": true,
         "modupdater": {
             "strategy": "json",
             "url": "https://raw.githubusercontent.com/gbl/ModVersionInfo/master/FlightHelper.json"
