@@ -16,9 +16,9 @@ public class KeyRegistration {
     public static void registerKeyBindings() {
         final String category="key.categories.flighthelper";
         
-        lockUp    = register("flighthelper:lockup",     GLFW.GLFW_KEY_KP_8, category);
-        lockFront = register("flighthelper:lockfront",  GLFW.GLFW_KEY_KP_2, category);
-        unlock    = register("flighthelper:unlock",     GLFW.GLFW_KEY_KP_5, category);
+        lockUp    = register("key.flighthelper.lockup",     GLFW.GLFW_KEY_KP_8, category);
+        lockFront = register("key.flighthelper.lockfront",  GLFW.GLFW_KEY_KP_2, category);
+        unlock    = register("key.flighthelper.unlock",     GLFW.GLFW_KEY_KP_5, category);
         ClientTickEvents.END_CLIENT_TICK.register(e->processKeyBinds());
     }
 
