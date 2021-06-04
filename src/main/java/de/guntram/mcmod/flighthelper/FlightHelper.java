@@ -23,7 +23,7 @@ public class FlightHelper implements ClientModInitializer, ClientTickCallback {
 
     public static void lockPitch(float pitch) {
         lockedPitch=pitch;
-        float yaw=MinecraftClient.getInstance().player.yaw;
+        float yaw=MinecraftClient.getInstance().player.getYaw();
         while (yaw<0) yaw+=360;
         while (yaw>360) yaw-=360;
         if (yaw < 5.0 || yaw > 355.0) {
@@ -38,7 +38,7 @@ public class FlightHelper implements ClientModInitializer, ClientTickCallback {
         else if (yaw>265.0 && yaw<275.0) {
             yaw=270.0f;
         }
-        MinecraftClient.getInstance().player.yaw=yaw;
+        MinecraftClient.getInstance().player.setYaw(yaw);
         isLocked=true;
     }
     
@@ -53,11 +53,11 @@ public class FlightHelper implements ClientModInitializer, ClientTickCallback {
         ClientPlayerEntity player = mncrft.player;
         if (player==null)
             return;                 // logged out while locked
-        float curPitch = player.pitch;
+        float curPitch = player.getPitch();
         float delta=lockedPitch-curPitch;
         if (delta>5.0f) delta=5.0f;
         if (delta<-5.0f) delta=-5.0f;
-        player.pitch+=delta;
+        player.setPitch(curPitch+delta);
         if (ConfigurationHandler.getAutoUnlock() && delta>-0.01f && delta<0.01f)
             isLocked=false;
     }
