@@ -1,0 +1,14 @@
+{
+    "key.categories.flighthelper":"FlightHelper",
+    "key.flighthelper.lockup":"Установить наклон для взлёта",
+    "key.flighthelper.lockfront":"Установить наклон для парения",
+    "key.flighthelper.unlock":"Разблокировать наклон",
+    
+    "flighthelper.config.pitchup": "Наклон взлёта",
+    "flighthelper.config.pitchfront": "Наклон парения",
+    "flighthelper.config.autounlock": "Не блокировать наклон",
+
+    "flighthelper.config.tt.pitchup": "Наклон для использования\nфейерверков при взлёте",
+    "flighthelper.config.tt.pitchfront": "Наклон при парении",
+    "flighthelper.config.tt.autounlock": "Устанавливать наклон единожды,\nно не блокировать его изменение"
+}
