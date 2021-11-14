@@ -7,8 +7,10 @@
     "flighthelper.config.pitchup": "Pitch up",
     "flighthelper.config.pitchfront": "Pitch front",
     "flighthelper.config.autounlock": "Auto unlock",
+    "flighthelper.config.snapyaw": "Snap yaw",
 
     "flighthelper.config.tt.pitchup": "Pitch when using fireworks and flying up",
     "flighthelper.config.tt.pitchfront": "Pitch when gliding",
-    "flighthelper.config.tt.autounlock": "Set pitch once, but don't lock"
+    "flighthelper.config.tt.autounlock": "Set pitch once, but don't lock",
+    "flighthelper.config.tt.snapyaw": "Snap yaw to N/S/W/E if it only differs a little bit"
 }
