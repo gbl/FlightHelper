@@ -13,6 +13,7 @@ public class ConfigurationHandler implements ModConfigurationHandler {
     private String configFileName;
     private float lockUpAngle, lockFrontAngle;
     private boolean autoUnlock;
+    private boolean snapYaw;
 
     public static ConfigurationHandler getInstance() {
         if (instance==null)
@@ -44,6 +45,7 @@ public class ConfigurationHandler implements ModConfigurationHandler {
         lockUpAngle=config.getFloat("flighthelper.config.pitchup", Configuration.CATEGORY_CLIENT, -55f, -90f, 90f, "flighthelper.config.tt.pitchup");
         lockFrontAngle=config.getFloat("flighthelper.config.pitchfront", Configuration.CATEGORY_CLIENT, -2.2f, -90f, 90f, "flighthelper.config.tt.pitchfront");
         autoUnlock=config.getBoolean("flighthelper.config.autounlock", Configuration.CATEGORY_CLIENT, false, "flighthelper.config.tt.autounlock");
+        snapYaw=config.getBoolean("flighthelper.config.snapyaw", Configuration.CATEGORY_CLIENT, true, "flighthelper.config.tt.snapyaw");
         if (config.hasChanged())
             config.save();
     }
@@ -69,4 +71,7 @@ public class ConfigurationHandler implements ModConfigurationHandler {
         return getInstance().autoUnlock;
     }
     
+    public static boolean getSnapYaw() {
+        return getInstance().snapYaw;
+    }
 }

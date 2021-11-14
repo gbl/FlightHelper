@@ -7,8 +7,10 @@
     "flighthelper.config.pitchup": "Winkel nach oben",
     "flighthelper.config.pitchfront": "Winkel nach vorne",
     "flighthelper.config.autounlock": "Automatisch entsperren",
+    "flighthelper.config.snapyaw": "Flugrichtung exakt stellen",
 
     "flighthelper.config.tt.pitchup": "Winkel, der bei der Verwendung von Feuerwerk eingestellt wird",
     "flighthelper.config.tt.pitchfront": "Winkel, der beim Gleiten eingestellt wird",
-    "flighthelper.config.tt.autounlock": "Winkel nur einstellen, nicht sperren"
+    "flighthelper.config.tt.autounlock": "Winkel nur einstellen, nicht sperren",
+    "flighthelper.config.tt.snapyaw": "Flugrichtung exakt auf N/S/W/O einstellen, wenn sie nur wenig abweicht"
 }
