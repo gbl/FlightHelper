@@ -20,10 +20,10 @@ sourceCompatibility = 16
 targetCompatibility = 16
 
 ext.Versions = new Properties()
-Versions.load(file("Versionfiles/mcversion-21w40a.properties").newReader())
+Versions.load(file("Versionfiles/mcversion-1.18-pre1.properties").newReader())
 
 archivesBaseName = "flighthelper"
-ext.projectVersion = "1.2.1"
+ext.projectVersion = "1.2.2"
 
 version = "${Versions['minecraft_version']}-fabric${Versions['fabric_versiononly']}-${project.projectVersion}"
 
