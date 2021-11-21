@@ -19,8 +19,7 @@
         "fabric": "*"
     },
     "recommends": {
-        "modmenu" : "*",
-        "modupdater": ">=1.1.7"
+        "modmenu" : "*"
     },
     "name": "FlightHelper",
     "description": "Helps with getting the maximum range out of rockets when flying Elytra, by locking the pitch to two different angles (one for firing rockets, one for gliding)",
