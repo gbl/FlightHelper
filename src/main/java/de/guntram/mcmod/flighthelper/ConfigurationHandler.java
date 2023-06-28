@@ -3,6 +3,7 @@ package de.guntram.mcmod.flighthelper;
 import de.guntram.mcmod.fabrictools.ConfigChangedEvent;
 import de.guntram.mcmod.fabrictools.Configuration;
 import de.guntram.mcmod.fabrictools.ModConfigurationHandler;
+
 import java.io.File;
 
 public class ConfigurationHandler implements ModConfigurationHandler {
