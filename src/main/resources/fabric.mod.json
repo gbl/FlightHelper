@@ -16,7 +16,7 @@
     "mixins": [
     ],
     "depends": {
-        "fabric": "*"
+        "fabric-api": "*"
     },
     "recommends": {
         "modmenu" : "*"
